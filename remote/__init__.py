@@ -24,7 +24,7 @@ def main():
     # 4. Register to Elixir BTR
     parser = argparse.ArgumentParser(
                  description='Transform Mobyle1 XML to BTR XML and JSON')
-    group = parser.add_mutually_exclusive_group()
+    group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument('--from_server', help="Mobyle server URI to import definitions from")
     group.add_argument('--from_files', help="Mobyle XML files to import definitions from", nargs='+')
     parser.add_argument('--xml_dir', help="target directory for XML files")

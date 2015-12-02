@@ -2,7 +2,7 @@
 <xsl:stylesheet version="1.0"
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform"  xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#" >
 
-    <xsl:variable name="edam" select="document('EDAM_1.8.owl')"/>
+    <xsl:variable name="edam" select="document('EDAM_1.11.owl')"/>
 
     <xsl:template match="@*|*|processing-instruction()|comment()">
         <xsl:copy>

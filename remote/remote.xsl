@@ -10,7 +10,7 @@
     <xsl:variable name="data" select="document('mobyle_data.xml')"/>
     <xsl:variable name="formats" select="document('mobyle_formats.xml')"/>
 
-    <xsl:variable name="edam" select="document('EDAM_1.8.owl')"/>
+    <xsl:variable name="edam" select="document('EDAM_1.11.owl')"/>
 
     <xsl:template match="/*">
         <resources xmlns="http://bio.tools" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://bio.tools biotools-1.4.xsd">

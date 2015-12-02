@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2015 sp2 (x64) (http://www.altova.com) by Jon Ison (private) -->
-<xs:schema xmlns="http://biotoolsregistry.org" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:altova="http://www.altova.com/xml-schema-extensions" targetNamespace="http://biotoolsregistry.org" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns="http://bio.tools" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:altova="http://www.altova.com/xml-schema-extensions" targetNamespace="http://bio.tools" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:complexType name="OntologyTerm">
 		<xs:annotation>
 			<xs:documentation>Ontology concept term + URI, , or any tag</xs:documentation>
@@ -208,7 +208,7 @@
 					<xs:simpleType>
 						<xs:restriction base="Name">
 							<xs:maxLength value="50"/>
-							<xs:pattern value="[\p{Zs}A-Za-z0-9+\.,\-_:;]*"/>
+							<xs:pattern value="[\p{Zs}A-Za-z0-9+\.,\-_:;()]*"/>
 						</xs:restriction>
 					</xs:simpleType>
 				</xs:element>
@@ -324,7 +324,7 @@
 				</xs:element>
 				<xs:element name="resourceType" maxOccurs="unbounded">
 					<xs:annotation>
-						<xs:documentation>Basic resource type: "Database", "Tool", "Service", "Workflow", "Platform", "Container" or "Library"</xs:documentation>
+						<xs:documentation>Basic resource type: "Database", "Tool", "Service", "Workflow", "Platform", "Container", "Library" or "Other"</xs:documentation>
 						<xs:appinfo>
 							<altova:exampleValues>
 								<altova:example value="Tool"/>
@@ -333,6 +333,7 @@
 					</xs:annotation>
 					<xs:simpleType>
 						<xs:restriction base="Name">
+							<xs:enumeration value="Other"/>
 							<xs:enumeration value="Database"/>
 							<xs:enumeration value="Tool"/>
 							<xs:enumeration value="Service"/>
@@ -639,6 +640,11 @@
 									</xs:appinfo>
 								</xs:annotation>
 							</xs:element>
+							<xs:element name="docsGithub" type="URL" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Github page (URL)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
 							<xs:element name="docsTermsOfUse" type="URLFTP" minOccurs="0">
 								<xs:annotation>
 									<xs:documentation>Link to license text or terms of use (URL)</xs:documentation>
@@ -651,12 +657,22 @@
 							</xs:element>
 							<xs:element name="docsDownload" type="URLFTP" minOccurs="0">
 								<xs:annotation>
-									<xs:documentation>Software or data downloads page (URL)</xs:documentation>
+									<xs:documentation>General downloads page (URL)</xs:documentation>
 									<xs:appinfo>
 										<altova:exampleValues>
 											<altova:example value="http://toolname.org/downloads"/>
 										</altova:exampleValues>
 									</xs:appinfo>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="docsDownloadSource" type="URLFTP" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Source code downloads page (URL)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="docsDownloadBinaries" type="URLFTP" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Software binaries downloads page (URL)</xs:documentation>
 								</xs:annotation>
 							</xs:element>
 							<xs:element name="docsCitationInstructions" type="URLFTP" minOccurs="0">
@@ -672,7 +688,7 @@
 						</xs:all>
 					</xs:complexType>
 				</xs:element>
-				<xs:element name="publications">
+				<xs:element name="publications" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>Publications relevant to the resource</xs:documentation>
 					</xs:annotation>
@@ -798,7 +814,7 @@
 				<xs:simpleType>
 					<xs:restriction base="Name">
 						<xs:whiteSpace value="collapse"/>
-						<xs:maxLength value="100"/>
+						<xs:maxLength value="300"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -862,7 +878,7 @@
 		</xs:annotation>
 		<xs:restriction base="xs:string">
 			<xs:minLength value="1"/>
-			<xs:maxLength value="200"/>
+			<xs:maxLength value="300"/>
 			<xs:whiteSpace value="collapse"/>
 		</xs:restriction>
 	</xs:simpleType>
@@ -984,7 +1000,7 @@
 			</xs:element>
 			<xs:element name="contactRole" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>Role of contact: "General", "Developer", "Technical", "Scientific" or "Helpdesk"</xs:documentation>
+					<xs:documentation>Role of contact: "General", "Developer", "Technical", "Scientific", "Maintainer" or "Helpdesk"</xs:documentation>
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="Name">
@@ -992,6 +1008,7 @@
 						<xs:enumeration value="Developer"/>
 						<xs:enumeration value="Technical"/>
 						<xs:enumeration value="Scientific"/>
+						<xs:enumeration value="Maintainer"/>
 						<xs:enumeration value="Helpdesk"/>
 					</xs:restriction>
 				</xs:simpleType>

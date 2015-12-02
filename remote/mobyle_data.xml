@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<datas>
+  <data name="Sequence">http://edamontology.org/data_2044</data>
+  <data name="Sequence-Protein">http://edamontology.org/data_2976</data>
+  <data name="Sequence-DNA">http://edamontology.org/data_2977</data>
+  <data name="Alignment">http://edamontology.org/data_0863</data>
+  <data name="Alignment-Protein">http://edamontology.org/data_1384</data>
+  <data name="Alignment-DNA">http://edamontology.org/data_1383</data>
+  <data name="DistanceMatrix">http://edamontology.org/data_0870</data>
+  <data name="PhylipDistanceMatrix">http://edamontology.org/data_0870</data>
+  <data name="Tree">http://edamontology.org/data_0872</data>
+  <data name="BlastTextReport">http://edamontology.org/data_0857</data>
+  <data name="Report">http://edamontology.org/data_2048</data>
+</datas>

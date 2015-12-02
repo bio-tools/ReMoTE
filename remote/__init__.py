@@ -5,6 +5,7 @@ import argparse
 import requests
 import os.path
 import getpass
+from requests.packages import urllib3
 
 ns = {'btr':'http://biotoolsregistry.org'}
 
@@ -44,6 +45,10 @@ def main():
     params = {'mobyle_root':"'http://mobyle.pasteur.fr'",
               'mobyle_contact':"'mobyle@pasteur.fr'"}
     if args.login:
+        # Disable HTTPS verification warnings from urllib3
+        # if setup requires it
+        if SSL_VERIFY==False:
+            urllib3.disable_warnings()
         print "authenticating..."
         token = auth(args.login)
         print "authentication ok"
